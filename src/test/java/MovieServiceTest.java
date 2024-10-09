@@ -13,10 +13,10 @@ public class MovieServiceTest {
 
     @Before
     public void setMovieList(){
-        movieService.addMovie(new Movie("Spiderman"));
-        movieService.addMovie(new Movie("Superman"));
-        movieService.addMovie(new Movie("Batman"));
-        movieService.addMovie(new Movie("Iron Man"));
+        movieService.addMovie(new Movie("Spiderman","Tobey"));
+        movieService.addMovie(new Movie("Superman","Henry Cavill"));
+        movieService.addMovie(new Movie("Batman","Christian Bale"));
+        movieService.addMovie(new Movie("Iron Man","Robert"));
     }
 
     @Test
@@ -29,5 +29,17 @@ public class MovieServiceTest {
     public void returnResultWhenTitleMatched() throws Exception{
         List<Movie> movieList = movieService.findByTitle("man");
         assertEquals(4, movieList.size());
+    }
+
+    @Test
+    public void returnNoResultWhenCastNotMatched() throws Exception{
+        List<Movie> movieList = movieService.findByCast("abc");
+        assertEquals(0, movieList.size());
+    }
+
+    @Test
+    public void returnResultWhenCastMatched() throws Exception{
+        List<Movie> movieList = movieService.findByCast("henry");
+        assertEquals(1, movieList.size());
     }
 }
