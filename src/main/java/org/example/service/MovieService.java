@@ -31,4 +31,14 @@ public class MovieService {
         }
         return result;
     }
+
+    public List<Movie> findByCategory(String category) {
+        List<Movie> result = new ArrayList<>();
+        for(Movie movie : movieList){
+            if(movie.category().toLowerCase().contains(category.toLowerCase())){
+                result.add(movie);
+            }
+        }
+        return result;
+    }
 }

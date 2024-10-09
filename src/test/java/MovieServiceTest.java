@@ -13,10 +13,10 @@ public class MovieServiceTest {
 
     @Before
     public void setMovieList(){
-        movieService.addMovie(new Movie("Spiderman","Tobey"));
-        movieService.addMovie(new Movie("Superman","Henry Cavill"));
-        movieService.addMovie(new Movie("Batman","Christian Bale"));
-        movieService.addMovie(new Movie("Iron Man","Robert"));
+        movieService.addMovie(new Movie("Spiderman","Tobey", "Action"));
+        movieService.addMovie(new Movie("Superman","Henry Cavill", "Action"));
+        movieService.addMovie(new Movie("Batman","Christian Bale", "Action"));
+        movieService.addMovie(new Movie("Iron Man","Robert", "Action"));
     }
 
     @Test
@@ -41,5 +41,17 @@ public class MovieServiceTest {
     public void returnResultWhenCastMatched() throws Exception{
         List<Movie> movieList = movieService.findByCast("henry");
         assertEquals(1, movieList.size());
+    }
+
+    @Test
+    public void returnNoResultWhenCategoryNotMatched() throws Exception{
+        List<Movie> movieList = movieService.findByCategory("drama");
+        assertEquals(0, movieList.size());
+    }
+
+    @Test
+    public void returnResultWhenCategoryMatched() throws Exception{
+        List<Movie> movieList = movieService.findByCategory("action");
+        assertEquals(4, movieList.size());
     }
 }
