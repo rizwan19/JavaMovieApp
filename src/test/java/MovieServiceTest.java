@@ -24,4 +24,10 @@ public class MovieServiceTest {
         List<Movie> movieList = movieService.findByTitle("abc");
         assertEquals(0, movieList.size());
     }
+
+    @Test
+    public void returnResultWhenTitleMatched() throws Exception{
+        List<Movie> movieList = movieService.findByTitle("man");
+        assertEquals(4, movieList.size());
+    }
 }
