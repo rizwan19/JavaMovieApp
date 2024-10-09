@@ -87,4 +87,11 @@ public class MovieServiceTest {
         assertNull(user);
     }
 
+    @Test
+    public void returnUserIfRegistrationIsSuccessful() throws Exception{
+        User mark = new User("mark@gmail.com");
+        User user = userService.register(mark);
+        assertEquals(mark, user);
+    }
+
 }
