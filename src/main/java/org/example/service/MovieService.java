@@ -45,4 +45,13 @@ public class MovieService {
         result.sort(Comparator.comparing(Movie::title));
         return result;
     }
+
+    public Movie findMovieDetailsById(int id) {
+        for(Movie movie : movieList){
+            if(movie.getId() == id){
+                return movie;
+            }
+        }
+        return null;
+    }
 }

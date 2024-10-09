@@ -9,18 +9,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class MovieServiceTest {
 
     private MovieService movieService = new MovieService();
     private UserService userService = new UserService();
 
-    Movie spiderMan = new Movie("Spiderman","Tobey", "Action");
-    Movie superman = new Movie("Superman","Henry Cavill", "Action");
-    Movie batman = new Movie("Batman","Christian Bale", "Action");
-    Movie ironMan = new Movie("Iron Man","Robert", "Action");
+    Movie spiderMan = new Movie(1,"Spiderman","Tobey", "Action");
+    Movie superman = new Movie(2,"Superman","Henry Cavill", "Action");
+    Movie batman = new Movie(3,"Batman","Christian Bale", "Action");
+    Movie ironMan = new Movie(4,"Iron Man","Robert", "Action");
 
     @Before
     public void setMovieList(){
@@ -98,8 +97,9 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void returnNoMovieIfIdNotFound() throws Exception{
-
+    public void returnMovieDetailsIfIdFound() throws Exception{
+        Movie movie = movieService.findMovieDetailsById(1);
+        assertNotNull(movie);
     }
 
 }
