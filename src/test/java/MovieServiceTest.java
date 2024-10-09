@@ -4,8 +4,6 @@ import org.example.service.MovieService;
 import org.example.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -117,6 +115,13 @@ public class MovieServiceTest {
         userService.addToFavorite(spiderMan);
         assertEquals(1, userService.currentUser.getFavoriteMovies().size());
         assertEquals("Spiderman", userService.currentUser.getFavoriteMovies().get(0).title());
+    }
+
+    @Test
+    public void testRemoveMovieFromFavorite() throws Exception{
+        userService.addToFavorite(spiderMan);
+        userService.removeFromFavorite(spiderMan);
+        assertEquals(0, userService.currentUser.getFavoriteMovies().size());
     }
 
 }

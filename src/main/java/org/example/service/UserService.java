@@ -21,4 +21,8 @@ public class UserService {
     public void addToFavorite(Movie movie) {
         currentUser.getFavoriteMovies().add(movie);
     }
+
+    public void removeFromFavorite(Movie movie) {
+        currentUser.getFavoriteMovies().remove(movie);
+    }
 }
