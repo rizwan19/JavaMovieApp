@@ -5,6 +5,7 @@ import org.example.model.Movie;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class MovieService {
     List<Movie> movieList = new ArrayList<>();
@@ -53,5 +54,13 @@ public class MovieService {
             }
         }
         return null;
+    }
+
+    public Movie showMovieDetailsById(int id) {
+        Movie movie = findMovieDetailsById(id);
+        if(Objects.nonNull(movie)){
+            System.out.println(movie.toString());
+        }
+        return movie;
     }
 }

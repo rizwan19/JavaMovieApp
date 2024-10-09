@@ -32,4 +32,15 @@ public class Movie {
     public int getId() {
         return this.id;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", cast='" + cast + '\'' +
+                ", category='" + category + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", budget=" + budget +
+                '}';
+    }
 }
