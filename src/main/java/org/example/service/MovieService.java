@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.model.Movie;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class MovieService {
@@ -19,6 +20,7 @@ public class MovieService {
                 result.add(movie);
             }
         }
+        result.sort(Comparator.comparing(Movie::title));
         return result;
     }
 
@@ -29,6 +31,7 @@ public class MovieService {
                 result.add(movie);
             }
         }
+        result.sort(Comparator.comparing(Movie::title));
         return result;
     }
 
@@ -39,6 +42,7 @@ public class MovieService {
                 result.add(movie);
             }
         }
+        result.sort(Comparator.comparing(Movie::title));
         return result;
     }
 }
