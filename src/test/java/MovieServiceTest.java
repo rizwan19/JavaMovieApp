@@ -28,7 +28,10 @@ public class MovieServiceTest {
         movieService.addMovie(superman);
         movieService.addMovie(batman);
         movieService.addMovie(ironMan);
+    }
 
+    @Before
+    public void setUserList(){
         User jack = new User("jack@gmail.com");
         User ross = new User("ross@gmail.com");
         User andrew = new User("andrew@gmail.com");
@@ -92,6 +95,11 @@ public class MovieServiceTest {
         User mark = new User("mark@gmail.com");
         User user = userService.register(mark);
         assertEquals(mark, user);
+    }
+
+    @Test
+    public void returnNoMovieIfIdNotFound() throws Exception{
+
     }
 
 }
