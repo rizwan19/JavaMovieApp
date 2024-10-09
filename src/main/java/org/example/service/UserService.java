@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Movie;
 import org.example.model.User;
 
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.Map;
 
 public class UserService {
     Map <String, User> userMap = new HashMap<>();
-    User currentUser;
+    public User currentUser;
     public User register(User newUser) {
         if(!userMap.containsKey(newUser.getEmail())){
             userMap.put(newUser.getEmail(), newUser);
@@ -15,5 +16,9 @@ public class UserService {
             return newUser;
         }
         return null;
+    }
+
+    public void addToFavorite(Movie movie) {
+        currentUser.getFavoriteMovies().add(movie);
     }
 }

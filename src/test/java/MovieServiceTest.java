@@ -112,4 +112,11 @@ public class MovieServiceTest {
         assertNotNull(movieService.showMovieDetailsById(1));
     }
 
+    @Test
+    public void testAddMovieToFavorite() throws Exception{
+        userService.addToFavorite(spiderMan);
+        assertEquals(1, userService.currentUser.getFavoriteMovies().size());
+        assertEquals("Spiderman", userService.currentUser.getFavoriteMovies().get(0).title());
+    }
+
 }
