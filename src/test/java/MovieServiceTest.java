@@ -102,4 +102,9 @@ public class MovieServiceTest {
         assertNotNull(movie);
     }
 
+    @Test
+    public void returnNoMovieIfIdNotFound() throws Exception{
+        assertNull(movieService.findMovieDetailsById(100));
+    }
+
 }
