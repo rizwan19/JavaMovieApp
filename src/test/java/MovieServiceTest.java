@@ -1,5 +1,7 @@
 import org.example.model.Movie;
+import org.example.model.User;
 import org.example.service.MovieService;
+import org.example.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,10 +10,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class MovieServiceTest {
 
-    MovieService movieService = new MovieService();
+    private MovieService movieService = new MovieService();
+    private UserService userService = new UserService();
+
     Movie spiderMan = new Movie("Spiderman","Tobey", "Action");
     Movie superman = new Movie("Superman","Henry Cavill", "Action");
     Movie batman = new Movie("Batman","Christian Bale", "Action");
@@ -23,6 +28,13 @@ public class MovieServiceTest {
         movieService.addMovie(superman);
         movieService.addMovie(batman);
         movieService.addMovie(ironMan);
+
+        User jack = new User("jack@gmail.com");
+        User ross = new User("ross@gmail.com");
+        User andrew = new User("andrew@gmail.com");
+        userService.register(jack);
+        userService.register(ross);
+        userService.register(andrew);
     }
 
     @Test
@@ -62,16 +74,17 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void returnNoResultWhenCategoryMatchedInRandomOrderByTitle() throws Exception{
-        List<Movie> expectedList = Arrays.asList(spiderMan, batman, ironMan, superman);
-        List<Movie> movieList = movieService.findByCategory("action");
-        assertEquals(expectedList, movieList);
-    }
-
-    @Test
     public void returnResultWhenCategoryMatchedInAscendingOrderByTitle() throws Exception{
         List<Movie> expectedList = Arrays.asList(batman, ironMan, spiderMan, superman);
         List<Movie> movieList = movieService.findByCategory("action");
         assertEquals(expectedList, movieList);
     }
+
+    @Test
+    public void returnNoUserIfRegistrationIsFailed() throws Exception{
+        User jack = new User("jack@gmail.com");
+        User user = userService.register(jack);
+        assertNull(user);
+    }
+
 }
