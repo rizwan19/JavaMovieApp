@@ -16,10 +16,10 @@ public class MovieServiceTest {
     private MovieService movieService = new MovieService();
     private UserService userService = new UserService();
 
-    Movie spiderMan = new Movie(1,"Spiderman","Tobey", "Action");
-    Movie superman = new Movie(2,"Superman","Henry Cavill", "Action");
-    Movie batman = new Movie(3,"Batman","Christian Bale", "Action");
-    Movie ironMan = new Movie(4,"Iron Man","Robert", "Action");
+    Movie spiderMan = new Movie(1,"Spiderman","Tobey", "Action","10/10/2003",1000000000D);
+    Movie superman = new Movie(2,"Superman","Henry Cavill", "Action","11/09/2010",34345534D);
+    Movie batman = new Movie(3,"Batman","Christian Bale", "Action","04/03/2004",25342423434D);
+    Movie ironMan = new Movie(4,"Iron Man","Robert", "Action","20/12/2009",23423423332D);
 
     @Before
     public void setMovieList(){
