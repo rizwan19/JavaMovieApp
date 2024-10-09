@@ -25,4 +25,15 @@ public class UserService {
     public void removeFromFavorite(Movie movie) {
         currentUser.getFavoriteMovies().remove(movie);
     }
+
+    public String showPersonalDetails(){
+        String personalDetails = currentUser.toString();
+        System.out.println(personalDetails);
+        return personalDetails;
+    }
+
+
+    public void showFavoriteMovies() {
+        System.out.println(currentUser.getFavoriteMovies());
+    }
 }

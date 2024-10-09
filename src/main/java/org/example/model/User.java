@@ -18,4 +18,12 @@ public class User {
     public List<Movie> getFavoriteMovies() {
         return this.favoriteMovieList;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", favoriteMovieList=" + favoriteMovieList +
+                '}';
+    }
 }

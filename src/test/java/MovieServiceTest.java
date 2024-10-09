@@ -124,4 +124,13 @@ public class MovieServiceTest {
         assertEquals(0, userService.currentUser.getFavoriteMovies().size());
     }
 
+    @Test
+    public void testShowingPersonalDetails() throws Exception{
+        userService.register(new User("rizwan@gmail.com"));
+        userService.addToFavorite(batman);
+        userService.addToFavorite(spiderMan);
+        assertEquals("rizwan@gmail.com", userService.currentUser.getEmail());
+        assertEquals(2, userService.currentUser.getFavoriteMovies().size());
+        assertNotNull(userService.showPersonalDetails());
+    }
 }
