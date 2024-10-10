@@ -20,6 +20,7 @@ public class UserService {
 
     public void addToFavorite(Movie movie) {
         currentUser.getFavoriteMovies().add(movie);
+        System.out.println(movie.title() + " is added to your favorite list");
     }
 
     public void removeFromFavorite(Movie movie) {
