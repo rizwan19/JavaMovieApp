@@ -62,6 +62,7 @@ public class Main {
             }
             else if(choice == 7){
                 System.out.println("Exiting ...");
+                return;
             }
             else{
                 System.out.println("Invalid choice");

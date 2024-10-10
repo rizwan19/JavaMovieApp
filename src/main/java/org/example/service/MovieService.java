@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class MovieService {
     private UserService userService = new UserService();
-    List<Movie> movieList = new ArrayList<>();
+    public static List<Movie> movieList = new ArrayList<>();
 
     public void addMovie(Movie movie) {
         movieList.add(movie);
