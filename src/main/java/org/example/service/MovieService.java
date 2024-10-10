@@ -118,4 +118,10 @@ public class MovieService {
         }
         return null;
     }
+
+    public void initMovies(){
+        addMovie(new Movie(1, "Spiderman", "Tobey", "Action", "22/04/2002", 123456));
+        addMovie(new Movie(2, "Batman", "Christian Bale", "Action", "22/04/2004", 35345345));
+        addMovie(new Movie(3, "Superman", "Henry Cavill", "Action", "22/04/2010", 2325532));
+    }
 }

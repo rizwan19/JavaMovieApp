@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         MovieService movieService = new MovieService();
         UserService userService = new UserService();
+        movieService.initMovies();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your email for registration");
