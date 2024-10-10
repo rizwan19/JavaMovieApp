@@ -69,21 +69,25 @@ public class MovieService {
     }
 
     public void searchMovie(String query, String searchBy){
-        List<Movie> movieList = new ArrayList<>();
-        if(searchBy.equalsIgnoreCase("title")){
-            movieList = findByTitle(query);
+        List<Movie> searchList = new ArrayList<>();
+
+        if(searchBy.equalsIgnoreCase("all")){
+            searchList = movieList;
+        }
+        else if(searchBy.equalsIgnoreCase("title")){
+            searchList = findByTitle(query);
         }
         else if(searchBy.equalsIgnoreCase("cast")){
-            movieList = findByCast(query);
+            searchList = findByCast(query);
         }
         else if(searchBy.equalsIgnoreCase("category")){
-            movieList = findByCategory(query);
+            searchList = findByCategory(query);
         }
         else{
             System.out.println("Invalid search criteria");
             return;
         }
-        for(Movie movie : movieList){
+        for(Movie movie : searchList){
             showMovieDetailsByMovie(movie);
         }
     }

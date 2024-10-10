@@ -31,10 +31,14 @@ public class Main {
             scanner.nextLine();
 
             if(choice == 1){
-                System.out.println("Search by (title, cast, category): ");
+                System.out.println("Search by (all, title, cast, category): ");
                 String searchBy = scanner.nextLine();
-                System.out.println("Enter your query: ");
-                String query = scanner.nextLine();
+                String query = "";
+
+                if(!searchBy.equalsIgnoreCase("all")) {
+                    System.out.println("Enter your query: ");
+                    query = scanner.nextLine();
+                }
                 movieService.searchMovie(query, searchBy);
             }
             else if(choice == 2){
