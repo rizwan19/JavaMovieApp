@@ -54,7 +54,7 @@ public class Main {
                 String searchBy = scanner.nextLine();
                 System.out.println("Enter your query : ");
                 String query = scanner.nextLine();
-
+                userService.searchFavoriteMovie(query, searchBy);
             }
         }
     }

@@ -69,4 +69,28 @@ public class UserService {
         result.sort(Comparator.comparing(Movie::title));
         return result;
     }
+
+    public void searchFavoriteMovie(String query, String searchBy){
+        List<Movie> movieList = new ArrayList<>();
+        if(searchBy.equalsIgnoreCase("title")){
+            movieList = findByTitleForFavorite(query);
+        }
+        else if(searchBy.equalsIgnoreCase("cast")){
+            movieList = findByCastForFavorite(query);
+        }
+        else if(searchBy.equalsIgnoreCase("category")){
+            movieList = findByCategoryForFavorite(query);
+        }
+        else{
+            System.out.println("Invalid search criteria");
+            return;
+        }
+        for(Movie movie : movieList){
+            showMovieDetailsByMovie(movie);
+        }
+    }
+
+    public void showMovieDetailsByMovie(Movie movie){
+        System.out.println(movie.toString());
+    }
 }
