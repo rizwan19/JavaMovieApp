@@ -62,4 +62,36 @@ public class MovieService {
         }
         return movie;
     }
+
+    public void showMovieDetailsByMovie(Movie movie){
+        System.out.println(movie.toString());
+    }
+
+    public void searchMovie(String query, String searchBy){
+        List<Movie> movieList = new ArrayList<>();
+        if(searchBy.equalsIgnoreCase("title")){
+            movieList = findByTitle(query);
+        }
+        else if(searchBy.equalsIgnoreCase("cast")){
+            movieList = findByCast(query);
+        }
+        else if(searchBy.equalsIgnoreCase("category")){
+            movieList = findByCategory(query);
+        }
+        else{
+            System.out.println("Invalid search criteria");
+            return;
+        }
+        for(Movie movie : movieList){
+            showMovieDetailsByMovie(movie);
+        }
+    }
+
+    public void addMovieToFavoriteByTitle(String title){
+        List<Movie> movieList = findByTitle(title);
+
+        if(!movieList.isEmpty()){
+
+        }
+    }
 }

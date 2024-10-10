@@ -38,94 +38,94 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void returnNoResultWhenTitleNotMatched() throws Exception{
+    public void returnNoResultWhenTitleNotMatched() {
         List<Movie> movieList = movieService.findByTitle("abc");
         assertEquals(0, movieList.size());
     }
 
     @Test
-    public void returnResultWhenTitleMatched() throws Exception{
+    public void returnResultWhenTitleMatched() {
         List<Movie> movieList = movieService.findByTitle("man");
         assertEquals(4, movieList.size());
     }
 
     @Test
-    public void returnNoResultWhenCastNotMatched() throws Exception{
+    public void returnNoResultWhenCastNotMatched() {
         List<Movie> movieList = movieService.findByCast("abc");
         assertEquals(0, movieList.size());
     }
 
     @Test
-    public void returnResultWhenCastMatched() throws Exception{
+    public void returnResultWhenCastMatched() {
         List<Movie> movieList = movieService.findByCast("henry");
         assertEquals(1, movieList.size());
     }
 
     @Test
-    public void returnNoResultWhenCategoryNotMatched() throws Exception{
+    public void returnNoResultWhenCategoryNotMatched(){
         List<Movie> movieList = movieService.findByCategory("drama");
         assertEquals(0, movieList.size());
     }
 
     @Test
-    public void returnResultWhenCategoryMatched() throws Exception{
+    public void returnResultWhenCategoryMatched(){
         List<Movie> movieList = movieService.findByCategory("action");
         assertEquals(4, movieList.size());
     }
 
     @Test
-    public void returnResultWhenCategoryMatchedInAscendingOrderByTitle() throws Exception{
+    public void returnResultWhenCategoryMatchedInAscendingOrderByTitle() {
         List<Movie> expectedList = Arrays.asList(batman, ironMan, spiderMan, superman);
         List<Movie> movieList = movieService.findByCategory("action");
         assertEquals(expectedList, movieList);
     }
 
     @Test
-    public void returnNoUserIfRegistrationIsFailed() throws Exception{
+    public void returnNoUserIfRegistrationIsFailed(){
         User jack = new User("jack@gmail.com");
         User user = userService.register(jack);
         assertNull(user);
     }
 
     @Test
-    public void returnUserIfRegistrationIsSuccessful() throws Exception{
+    public void returnUserIfRegistrationIsSuccessful() {
         User mark = new User("mark@gmail.com");
         User user = userService.register(mark);
         assertEquals(mark, user);
     }
 
     @Test
-    public void returnMovieDetailsIfIdFound() throws Exception{
+    public void returnMovieDetailsIfIdFound() {
         Movie movie = movieService.findMovieDetailsById(1);
         assertNotNull(movie);
     }
 
     @Test
-    public void returnNoMovieIfIdNotFound() throws Exception{
+    public void returnNoMovieIfIdNotFound() {
         assertNull(movieService.findMovieDetailsById(100));
     }
 
     @Test
-    public void showMovieDetailsById() throws  Exception{
+    public void showMovieDetailsById() {
         assertNotNull(movieService.showMovieDetailsById(1));
     }
 
     @Test
-    public void testAddMovieToFavorite() throws Exception{
+    public void testAddMovieToFavorite() {
         userService.addToFavorite(spiderMan);
         assertEquals(1, userService.currentUser.getFavoriteMovies().size());
         assertEquals("Spiderman", userService.currentUser.getFavoriteMovies().get(0).title());
     }
 
     @Test
-    public void testRemoveMovieFromFavorite() throws Exception{
+    public void testRemoveMovieFromFavorite() {
         userService.addToFavorite(spiderMan);
         userService.removeFromFavorite(spiderMan);
         assertEquals(0, userService.currentUser.getFavoriteMovies().size());
     }
 
     @Test
-    public void testShowingPersonalDetails() throws Exception{
+    public void testShowingPersonalDetails() {
         userService.register(new User("rizwan@gmail.com"));
         userService.addToFavorite(batman);
         userService.addToFavorite(spiderMan);

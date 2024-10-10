@@ -13,6 +13,7 @@ public class UserService {
         if(!userMap.containsKey(newUser.getEmail())){
             userMap.put(newUser.getEmail(), newUser);
             currentUser = newUser;
+            System.out.println("User is registered successfully");
             return newUser;
         }
         return null;
