@@ -41,6 +41,11 @@ public class Main {
                 String title = scanner.nextLine();
                 movieService.addMovieToFavoriteByTitle(title);
             }
+            else if(choice == 3){
+                System.out.println("Enter movie title to remove from favorites : ");
+                String title = scanner.nextLine();
+                movieService.removeMovieFromFavoriteByTitle(title);
+            }
         }
     }
 }

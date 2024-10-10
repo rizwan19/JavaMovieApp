@@ -99,6 +99,17 @@ public class MovieService {
         }
     }
 
+    public void removeMovieFromFavoriteByTitle(String title){
+        Movie movie = findByTitleExactMatched(title);
+
+        if(Objects.nonNull(movie)){
+            userService.removeFromFavorite(movie);
+        }
+        else{
+            System.out.println("Movie not found");
+        }
+    }
+
     public Movie findByTitleExactMatched(String title) {
         for(Movie movie : movieList){
             if(movie.title().equals(title)){
