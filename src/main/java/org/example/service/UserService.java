@@ -3,8 +3,7 @@ package org.example.service;
 import org.example.model.Movie;
 import org.example.model.User;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class UserService {
     Map <String, User> userMap = new HashMap<>();
@@ -36,5 +35,16 @@ public class UserService {
 
     public void showFavoriteMovies() {
         System.out.println(currentUser.getFavoriteMovies());
+    }
+
+    public List<Movie> findByTitleForFavorite(String title) {
+        List<Movie> result = new ArrayList<>();
+        for(Movie movie : currentUser.getFavoriteMovies()){
+            if(movie.title().toLowerCase().contains(title.toLowerCase())){
+                result.add(movie);
+            }
+        }
+        result.sort(Comparator.comparing(Movie::title));
+        return result;
     }
 }

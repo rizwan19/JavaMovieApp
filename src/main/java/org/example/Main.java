@@ -46,6 +46,16 @@ public class Main {
                 String title = scanner.nextLine();
                 movieService.removeMovieFromFavoriteByTitle(title);
             }
+            else if(choice == 4){
+                userService.showFavoriteMovies();
+            }
+            else if(choice == 5){
+                System.out.println("Search favorite movies by (title, cast, category) : ");
+                String searchBy = scanner.nextLine();
+                System.out.println("Enter your query : ");
+                String query = scanner.nextLine();
+
+            }
         }
     }
 }

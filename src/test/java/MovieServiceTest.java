@@ -145,4 +145,11 @@ public class MovieServiceTest {
         Movie movie = movieService.findByTitleExactMatched("Spiderman");
         assertNotNull(movie);
     }
+
+    @Test
+    public void returnNoResultWhenTitleNotMatchedForFavorites(){
+        userService.addToFavorite(spiderMan);
+        List<Movie> favoriteList = userService.findByTitleForFavorite("abc");
+        assertEquals(0, favoriteList.size());
+    }
 }
