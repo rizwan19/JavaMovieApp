@@ -47,4 +47,15 @@ public class UserService {
         result.sort(Comparator.comparing(Movie::title));
         return result;
     }
+
+    public List<Movie> findByCastForFavorite(String cast) {
+        List<Movie> result = new ArrayList<>();
+        for(Movie movie : currentUser.getFavoriteMovies()){
+            if(movie.cast().toLowerCase().contains(cast.toLowerCase())){
+                result.add(movie);
+            }
+        }
+        result.sort(Comparator.comparing(Movie::title));
+        return result;
+    }
 }
