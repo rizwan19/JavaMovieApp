@@ -94,4 +94,13 @@ public class MovieService {
 
         }
     }
+
+    public Movie findByTitleExactMatched(String title) {
+        for(Movie movie : movieList){
+            if(movie.title().equals(title)){
+                return movie;
+            }
+        }
+        return null;
+    }
 }

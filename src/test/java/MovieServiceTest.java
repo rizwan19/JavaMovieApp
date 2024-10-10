@@ -133,4 +133,16 @@ public class MovieServiceTest {
         assertEquals(2, userService.currentUser.getFavoriteMovies().size());
         assertNotNull(userService.showPersonalDetails());
     }
+
+    @Test
+    public void returnNoResultWhenTitleNotExactMatched(){
+        Movie movie = movieService.findByTitleExactMatched("man");
+        assertNull(movie);
+    }
+
+    @Test
+    public void returnResultWhenTitleExactMatched(){
+        Movie movie = movieService.findByTitleExactMatched("Spiderman");
+        assertNotNull(movie);
+    }
 }
