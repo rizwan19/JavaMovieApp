@@ -56,6 +56,15 @@ public class Main {
                 String query = scanner.nextLine();
                 userService.searchFavoriteMovie(query, searchBy);
             }
+            else if(choice == 6){
+                userService.showPersonalDetails();
+            }
+            else if(choice == 7){
+                System.out.println("Exiting ...");
+            }
+            else{
+                System.out.println("Invalid choice");
+            }
         }
     }
 }
