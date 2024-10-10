@@ -39,7 +39,7 @@ public class Main {
             else if(choice == 2){
                 System.out.println("Enter movie title to add to favorite: ");
                 String title = scanner.nextLine();
-                movieService.findByTitle(title);
+                movieService.addMovieToFavoriteByTitle(title);
             }
         }
     }

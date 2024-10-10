@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class MovieService {
+    private UserService userService = new UserService();
     List<Movie> movieList = new ArrayList<>();
 
     public void addMovie(Movie movie) {
@@ -88,10 +89,13 @@ public class MovieService {
     }
 
     public void addMovieToFavoriteByTitle(String title){
-        List<Movie> movieList = findByTitle(title);
+        Movie movie = findByTitleExactMatched(title);
 
-        if(!movieList.isEmpty()){
-
+        if(Objects.nonNull(movie)){
+            userService.addToFavorite(movie);
+        }
+        else{
+            System.out.println("Movie not found");
         }
     }
 
