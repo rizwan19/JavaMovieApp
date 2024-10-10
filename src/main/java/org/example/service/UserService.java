@@ -6,7 +6,7 @@ import org.example.model.User;
 import java.util.*;
 
 public class UserService {
-    public static Map <String, User> userMap = new HashMap<>();
+    public Map <String, User> userMap = new HashMap<>();
     public static User currentUser;
     public User register(User newUser) {
         if(!userMap.containsKey(newUser.getEmail())){

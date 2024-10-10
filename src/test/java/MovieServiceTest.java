@@ -3,37 +3,37 @@ import org.example.model.User;
 import org.example.service.MovieService;
 import org.example.service.UserService;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class MovieServiceTest {
+    MovieService movieService;
+    UserService userService;
 
-    private MovieService movieService = new MovieService();
-    private UserService userService = new UserService();
-
-    Movie spiderMan = new Movie(1,"Spiderman","Tobey", "Action","10/10/2003",1000000000D);
-    Movie superman = new Movie(2,"Superman","Henry Cavill", "Action","11/09/2010",34345534D);
-    Movie batman = new Movie(3,"Batman","Christian Bale", "Action","04/03/2004",25342423434D);
-    Movie ironMan = new Movie(4,"Iron Man","Robert", "Action","20/12/2009",23423423332D);
+    static Movie spiderMan = new Movie(1,"Spiderman","Tobey", "Action","10/10/2003",1000000000D);
+    static Movie superman = new Movie(2,"Superman","Henry Cavill", "Action","11/09/2010",34345534D);
+    static Movie batman = new Movie(3,"Batman","Christian Bale", "Action","04/03/2004",25342423434D);
+    static Movie ironMan = new Movie(4,"Iron Man","Robert", "Action","20/12/2009",23423423332D);
 
     @Before
-    public void setMovieList(){
+    public void init(){
+        movieService = new MovieService();
+        userService = new UserService();
+
+        MovieService.movieList = new ArrayList<>();
         movieService.addMovie(spiderMan);
         movieService.addMovie(superman);
         movieService.addMovie(batman);
         movieService.addMovie(ironMan);
-    }
 
-    @Before
-    public void setUserList(){
-        User jack = new User("jack@gmail.com");
-        User ross = new User("ross@gmail.com");
         User andrew = new User("andrew@gmail.com");
-        userService.register(jack);
-        userService.register(ross);
         userService.register(andrew);
     }
 
@@ -82,7 +82,7 @@ public class MovieServiceTest {
 
     @Test
     public void returnNoUserIfRegistrationIsFailed(){
-        User jack = new User("jack@gmail.com");
+        User jack = new User("andrew@gmail.com");
         User user = userService.register(jack);
         assertNull(user);
     }
