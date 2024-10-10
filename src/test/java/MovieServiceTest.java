@@ -173,4 +173,18 @@ public class MovieServiceTest {
         List<Movie> favoriteList = userService.findByCastForFavorite("Tobey");
         assertEquals(1, favoriteList.size());
     }
+
+    @Test
+    public void returnNoResultWhenCategoryNotMatchedForFavorites(){
+        userService.addToFavorite(spiderMan);
+        List<Movie> favoriteList = userService.findByCategoryForFavorite("drama");
+        assertEquals(0, favoriteList.size());
+    }
+
+    @Test
+    public void returnResultWhenCategoryMatchedForFavorites(){
+        userService.addToFavorite(spiderMan);
+        List<Movie> favoriteList = userService.findByCategoryForFavorite("action");
+        assertEquals(1, favoriteList.size());
+    }
 }
