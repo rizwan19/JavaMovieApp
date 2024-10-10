@@ -89,6 +89,9 @@ public class UserService {
         for(Movie movie : movieList){
             showMovieDetailsByMovie(movie);
         }
+        if(movieList.isEmpty()){
+            System.out.println("Not found");
+        }
     }
 
     public void showMovieDetailsByMovie(Movie movie){
